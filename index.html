@@ -9,16 +9,16 @@
 <body>
     <h1>Para mi niña de ojitos bonitos 💖</h1>
     <p>¡Eres lo mejor que me ha pasado en la vida! 🌟</p>
-    <p>Realmente quiero que esto funcione, me haces muy feliz, tu sabes que  siempre voy a estar para lo que necesites</p>
-    <p>y que te apoyare en este proceso que estas llevando</p>
+    <p>Realmente quiero que esto funcione, me haces muy feliz, tú sabes que siempre voy a estar para lo que necesites</p>
+    <p>y que te apoyaré en este proceso que estás llevando.</p>
     
     <div class="carousel">
-        <img src="..\imagenes\foto1.jpg" alt="" id="slide">
-        <img src="..\imagenes\foto2.jpg" alt="" id="slide">
-        <img src="..\imagenes\foto3.jpg" alt="" id="slide">
-        <img src="..\imagenes\foto4.jpg" alt="" id="slide">
-        <img src="..\imagenes\foto5.jpg" alt="" id="slide">
-        <img src="..\imagenes\foto6.jpg" alt="" id="slide">
+        <img src="imagenes/foto1.jpg" alt="Foto 1" class="slide">
+        <img src="imagenes/foto2.jpg" alt="Foto 2" class="slide">
+        <img src="imagenes/foto3.jpg" alt="Foto 3" class="slide">
+        <img src="imagenes/foto4.jpg" alt="Foto 4" class="slide">
+        <img src="imagenes/foto5.jpg" alt="Foto 5" class="slide">
+        <img src="imagenes/foto6.jpg" alt="Foto 6" class="slide">
         <button onclick="previousSlide()">⏪</button>
         <button onclick="nextSlide()">⏩</button>
     </div>
@@ -26,9 +26,32 @@
     <h1>Canción bonita para una niña bonita 💖</h1>
 
     <audio controls autoplay loop>
-        <source src="C:\Users\CXO Ryzen 5\OneDrive\Documentos\ultima\musica\cancionBonita.mp3" type="audio/mpeg">
+        <source src="musica/cancionBonita.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <script src="jss.js"></script>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function previousSlide() {
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        // Mostrar la primera imagen al cargar
+        showSlide(slideIndex);
+    </script>
 </body>
 </html>
